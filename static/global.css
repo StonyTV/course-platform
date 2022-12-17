@@ -1,0 +1,15 @@
+html {
+  font-family:system-ui;
+}
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  overflow: auto
+}
+a {
+  color: #7ba7e9;
+  text-decoration: none;
+}
