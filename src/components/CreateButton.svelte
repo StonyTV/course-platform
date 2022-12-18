@@ -4,7 +4,7 @@
 	export let name = '';
 	export let id = '';
 	export let icon = '';
-	export let href = "/"
+	export let href = '/';
 </script>
 
 <!-- <div class="button" {id} on:mouseup={() => $stateStore.modal = true}> -->

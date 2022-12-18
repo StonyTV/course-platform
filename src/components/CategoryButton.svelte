@@ -6,10 +6,10 @@
 	export let icon = '';
 	export let description = '';
 	export let href = '/';
+	export let onClick = () => {};
 </script>
 
-<!-- <div class="button" {id} on:mouseup={() => $stateStore.modal = true}> -->
-<a class="button" {id} {href}>
+<a class="button" {id} {href} class:active={$stateStore.currentCategory === id} on:click={onClick}>
 	<div class="header">
 		<span>{icon}</span>
 		<span class="name">{name}</span>
@@ -35,6 +35,12 @@
 		border-radius: 0.375rem;
 	}
 
+	.active {
+		background-color: #2f2f2f;
+	}
+	.active:hover {
+		background-color: #323131;
+	}
 	.button {
 		margin-top: 7px;
 		/* transition-property: background-color, border-color, text-decoration-color, fill, stroke;

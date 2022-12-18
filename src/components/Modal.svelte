@@ -1,15 +1,14 @@
 <script>
 	import { stateStore } from '../stores/mainStore';
-	const disable = () => ($stateStore.modal = false);
 </script>
 
-<div class="outsideModal" on:mouseup={() => disable()}>
+<div class="outsideModal" on:mouseup={() => ($stateStore.modal = false)}>
 	<div class="modal">Ceci est une modale</div>
 </div>
 
 <style>
 	.outsideModal {
-    cursor: pointer;
+		cursor: pointer;
 		background-color: #343541cc;
 		position: absolute;
 		top: 0;
@@ -24,6 +23,6 @@
 		border: solid 1px gray;
 		background: #343541;
 		padding: 14px;
-    cursor: auto;
+		cursor: auto;
 	}
 </style>

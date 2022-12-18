@@ -36,7 +36,7 @@
 		border: 1px solid #cccccc;
 		border-radius: 4px;
 		padding: 8px;
-    align-items: baseline;
+		align-items: baseline;
 	}
 
 	.text-input__label {
@@ -56,5 +56,8 @@
 		font-size: 16px;
 		color: #999999;
 		pointer-events: none;
+	}
+	.text-input__prefix {
+		padding-right: 5px;
 	}
 </style>

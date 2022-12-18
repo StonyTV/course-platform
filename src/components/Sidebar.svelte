@@ -7,13 +7,13 @@
 
 <div class="sidebar">
 	{#if $page?.route?.id?.includes('new_category')}
-		<CreateButton name="Retour à l'accueil" icon="🏠" href="/" />
+		<CreateButton name="Retour à l'accueil" icon="↩" href="/" />
 	{:else}
 		<CreateButton name="Nouvelle catégorie" icon="➕" href="/new_category" />
 	{/if}
 
 	<CategoryList />
-  
+
 	<LinkList
 		name="Code source sur Github"
 		icon="📚"
