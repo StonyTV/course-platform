@@ -2,9 +2,10 @@
 	export let icon = '';
 	export let name = '';
 	export let href = '#';
+	export let newPage = false;
 </script>
 
-<a {href}>
+<a {href} target={newPage ? "_blank" : "_self"}>
 	<div class="link">
 		<span>{icon}</span>
 		<span>{name}</span>

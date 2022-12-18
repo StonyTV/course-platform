@@ -1,17 +1,22 @@
 <script>
-	import CreateButton from '../components/CreateButton.svelte';
-	import CategoryList from '../components/CategoryList.svelte';
-	import LinkList from '../components/LinkList.svelte';
 	import Modal from '../components/Modal.svelte';
 	import { stateStore } from '../stores/mainStore';
+	import Sidebar from '../components/Sidebar.svelte';
+	import { onMount } from 'svelte';
+	import { apiFetch } from '../api/fetcher';
+	import { sideBarData } from '../mock/datas'
+
+	// import { getStores, navigating, page, updated } from '$app/stores';
+
+	onMount(async () => {
+		const categories = await apiFetch('category', {METHOD: 'get'}).then(rep => rep?.data || sideBarData)
+		$stateStore.categories = categories
+	}); 
+
 </script>
 
 <div class="layout">
-	<div class="sidebar">
-		<CreateButton name="Nouvelle catégorie" icon="➕" />
-		<CategoryList />
-		<LinkList name="Accès à Github" icon="📚" />
-	</div>
+	<Sidebar />
 	<div class="main">
 		<div class="mainContent">
 			<slot />
@@ -36,14 +41,6 @@
 		width: 100%;
 	}
 	.mainContent {
-		width: 720;
-	}
-	.sidebar {
-		display: flex;
-		flex-direction: column;
-		width: 245px;
-		color: white;
-		background-color: #202123;
-		padding: 7.5px;
+		width: 720px;
 	}
 </style>
