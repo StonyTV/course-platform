@@ -6,6 +6,8 @@
 
 	$: articles = [
 		{
+			id: '1',
+			categoryId: '1',
 			isPin: true,
 			tags: ['📘 Cours', '🤖 GPT'],
 			title: 'Apprendre le Javascript - Titres des cours',
@@ -14,7 +16,7 @@
 			creationDate: Date.now()
 		}
 	];
-	$: categoryId = $page.url.pathname.replace('/category/', '');
+	$: categoryId = $page.params.categoryId;
 	$: getCurrentCategory = () => $stateStore.categories.find((c) => c.id == categoryId) || {};
 </script>
 

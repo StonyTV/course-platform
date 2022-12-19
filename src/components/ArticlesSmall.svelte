@@ -1,4 +1,7 @@
 <script>
+	import { page } from '$app/stores';
+	
+	export let id = ''
 	export let isPin = false;
 	export let tags = [];
 	export let title = '';
@@ -14,7 +17,7 @@
 	};
 </script>
 
-<div class="article_small">
+<a class="article_small" href={`/category/${$page.params.categoryId}/articles/${id}`}>
 	<div class="header">
 		{#if isPin}
 			<div class="pin" class:pin_separator={tags.length > 0}>📍</div>
@@ -26,14 +29,18 @@
 	<div class="title">{title}</div>
 	<div class="description">{description}</div>
 	<div class="dateTime">{convertMillisecondsToDate(creationDate)}</div>
-</div>
+</a>
 
 <style>
+	.article_small:hover {
+		background-color: #35363d;
+	}
 	.article_small {
 		padding: 10px;
 		border-radius: 15px;
 		background-color: #313239;
 		border: solid 1px #ffffff33;
+		display: block;
 	}
 
 	.pin_separator:after {
@@ -60,6 +67,7 @@
 		padding: 5px 10px;
 		line-height: 21.01px;
 		margin-right: 7px;
+		color: #dbdbdb;
 	}
 	.header {
 		display: flex;
